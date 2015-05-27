@@ -30,7 +30,7 @@ namespace ngs\framework\routes {
 		 *
 		 * @return String
 		 */
-		public function getDynContainer() {
+		protected function getDynContainer() {
 			return $this->dynContainer;
 		}
 
@@ -40,7 +40,7 @@ namespace ngs\framework\routes {
 		 *
 		 * @return json Array
 		 */
-		private function getRouteConfig() {
+		protected function getRouteConfig() {
 			if ($this->routes == null) {
 				$routFile = NGS()->getConfigDir()."/routes.json";
 				if (file_exists($routFile)) {
@@ -239,11 +239,12 @@ namespace ngs\framework\routes {
 				}
 				throw NGS()->getNotFoundException();
 			}
+			
+			$_action = NGS()->getModuleName().".".$route["action"];
+			$this->setContentLoad($_action);
 			if (isset($route["nestedLoad"])) {
-				$this->setContentLoad($route["action"]);
 				$this->setNestedRoutes($route["nestedLoad"], $route["action"]);
 			}
-			$_action = NGS()->getModuleName().".".$route["action"];
 			return array("action" => $_action, "args" => $route["args"], "matched" => true);
 		}
 
@@ -348,6 +349,7 @@ namespace ngs\framework\routes {
 		}
 
 		private function setContentLoad($contentLoad) {
+		//	var_dump($this->getLoadORActionByAction($contentLoad));exit;
 			$this->contentLoad = $contentLoad;
 		}
 
@@ -356,6 +358,4 @@ namespace ngs\framework\routes {
 		}
 
 	}
-
-	return __NAMESPACE__;
 }

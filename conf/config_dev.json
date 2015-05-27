@@ -5,9 +5,15 @@
 			"host": "127.0.0.1",
 			"user": "root",
 			"pass": "",
+			"name": "demo"
+		},
+		"mongo": {
+			"host": "127.0.0.1",
+			"user": "",
+			"pass": "",
 			"name": "gos"
 		}
 	},
-	"static_path": "gos.am",
-	"contact_email": "info@imusic.am"
+	"static_path": "ngs.am",
+	"contact_email": "info@naghashyan.com"
 }

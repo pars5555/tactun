@@ -28,7 +28,10 @@ if (ENVIRONMENT != "production") {
 }
 
 //defaining ngs namespace
-define("DEFAULT_NS", "ngs");
+define("DEFAULT_NS", "demo");
+
+//defaining ngs namespace
+define("JS_FRAMEWORK_ENABLE", true);
 
 /*
 |--------------------------------------------------------------------------
@@ -87,7 +90,7 @@ define("USE_DBMS", "util\db\ImprovedDBMS");
 //defining load mapper path
 define("USE_LOAD_MAPPER", "loads\LoadMapper");
 //defining session manager path
-define("USE_SESSION_MANAGER", "gos\managers\SessionManager");
+define("USE_SESSION_MANAGER", "demo\managers\SessionManager");
 //defining session manager path
 define("USE_TEMPLATE_ENGINE", "util\ImTemplater");
 

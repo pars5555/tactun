@@ -73,12 +73,8 @@ namespace ngs\framework {
 		 * @return void
 		 */
 		public final function nest($namespace, $loadArr) {
-			$actionArr = NGS()->getLoadORActionByAction($loadArr["action"]);
-			if (!file_exists($actionArr["path"])) {
-				$this->onNoAccess("User hasn't access to the load: ".$actionArr["action"]);
-			}
-			require_once ($actionArr["path"]);
-			$loadObj = new $actionArr["action"]();
+			$actionArr = NGS()->getRoutesEngine()->getLoadORActionByAction($loadArr["action"]);
+			$loadObj = new $actionArr["action"];
 			//set that this load is nested
 			$loadObj->setIsNestedLoad(true);
 			if (isset($loadArr["args"])) {

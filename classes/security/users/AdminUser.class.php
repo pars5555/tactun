@@ -12,9 +12,9 @@
  * @version 6.0
  *
  */
-namespace security\users {
-	use \security\UserGroups;
-	use \managers\users\UserManager;
+namespace demo\security\users {
+	use \demo\security\UserGroups;
+	use \demo\managers\users\UserManager;
 
 	class AdminUser extends NgsUser {
 
@@ -58,7 +58,7 @@ namespace security\users {
 			if(UserManager::getInstance()->validate($this->getId(), $this->getUniqueId(), "admin")){
 				return true;
 			}
-			throw new \framework\exceptions\InvalidUserException("wrong user");
+			throw new \ngs\framework\exceptions\InvalidUserException("wrong user");
 		}
 	}
 

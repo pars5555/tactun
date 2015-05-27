@@ -18,8 +18,8 @@
  * @author   Levon Naghashyan <levon at naghashyan dot com>
  * @site http://naghashyan.com
  * @mail levon@naghashyan.com
- * @year 2012-2014
- * @version 6.0
+ * @year 2012-2015
+ * @version 2.0.0
  * @param array $params parameters
  * @param object $template template object
  * @return render template|null
@@ -41,10 +41,12 @@ function smarty_function_nest($params, $template) {
 	$include_file = $nsValue["inc"][$params["ns"]]["filename"];
 
 	$_tpl = $template->smarty->createTemplate($include_file, null, null, $nsValue["inc"][$params["ns"]]["params"]);
-
-	foreach ($template->smarty->smarty->tpl_vars as $key => $tplVars) {
-		$_tpl->assign($key, $tplVars);
+	if (isset($template->smarty->smarty) && isset($template->smarty->smarty->tpl_vars)) {
+		foreach ($template->smarty->smarty->tpl_vars as $key => $tplVars) {
+			$_tpl->assign($key, $tplVars);
+		}
 	}
+
 	$_tpl->assign("ns", $nsValue["inc"][$params["ns"]]["params"]);
 
 	$_tpl->assign("pm", $pmValue);

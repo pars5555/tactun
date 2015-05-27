@@ -11,8 +11,9 @@
  * @version 6.0
  *
  */
-namespace security\users {
-	use \security\UserGroups;
+namespace demo\security\users {
+	use \demo\security\UserGroups;
+	use \demo\managers\users\GuestUserManager;
 
 	class GuestUser extends NgsUser{
 

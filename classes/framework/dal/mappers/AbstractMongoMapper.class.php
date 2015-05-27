@@ -23,7 +23,11 @@ namespace ngs\framework\dal\mappers {
 		 */
 		function __construct() {
 			try {
-				$this->dbms = \ngs\framework\dal\connectors\MongoDBMS::getInstance(NGS()->getConfig()->DB_MONGO_host, NGS()->getConfig()->DB_MONGO_user, NGS()->getConfig()->DB_MONGO_pass, NGS()->getConfig()->DB_MONGO_name);
+				$host = NGS()->getConfig()->DB->mongo->host;
+				$user = NGS()->getConfig()->DB->mongo->user;
+				$pass = NGS()->getConfig()->DB->mongo->pass;
+				$name = NGS()->getConfig()->DB->mongo->name;
+				$this->dbms = \ngs\framework\dal\connectors\MongoDBMS::getInstance($host, $user, $pass, $name);
 			} catch(\Exception $e) {
 				throw new DebugException($e->getMessage(), "Mongo DB");
 			}
@@ -244,7 +248,7 @@ namespace ngs\framework\dal\mappers {
 		 * @param object $sqlQuery
 		 * @return
 		 */
-		protected function fetchRows($sqlQuery, $params = array(), $standartArgs = false) {
+		protected function fetchRows($sqlQuery, $params = array()) {
 
 			//create order by sql
 			if ($standartArgs) {

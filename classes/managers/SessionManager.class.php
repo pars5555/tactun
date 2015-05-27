@@ -11,13 +11,13 @@
  * @version 6.0
  *
  */
-namespace managers {
+namespace demo\managers {
 
-	use \security\UserGroups;
-	use \security\RequestGroups;
-	use \framework\exceptions\InvalidUserException;
+	use \demo\security\UserGroups;
+	use \demo\security\RequestGroups;
+	use \ngs\framework\exceptions\InvalidUserException;
 
-	class SessionManager extends \framework\session\NgsSessionManager {
+	class SessionManager extends \ngs\framework\session\NgsSessionManager {
 
 		private $user = null;
 
@@ -39,7 +39,7 @@ namespace managers {
 			}
 			try {
 				if (!isset($_COOKIE["ut"])) {
-					$user = new \security\users\GuestUser();
+					$user = new \demo\security\users\GuestUser();
 					$user->register();
 					$this->setUser($user, true, true);
 				} else {
@@ -91,7 +91,7 @@ namespace managers {
 		public function getUserByLevel($ut) {
 			switch ($ut) {
 				case UserGroups::$GUEST :
-					return new \security\users\GuestUser();
+					return new \demo\security\users\GuestUser();
 					break;
 				default :
 					throw new InvalidUserException("user not found");
@@ -109,7 +109,7 @@ namespace managers {
 		public function getUserByType($ut) {
 			switch ($ut) {
 				case UserGroups::$GUEST :
-					return new \security\users\GuestUser();
+					return new \demo\security\users\GuestUser();
 					break;
 				default :
 					throw new InvalidUserException("user not found");

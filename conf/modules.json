@@ -1,16 +1,7 @@
 {
 	"path": {
-		"exchange": {
-			"dir": "exchange"
-		},
-		"odoo": {
-			"dir": "odoo"
-		},
-		"shipping": {
-			"dir": "easypost"
-		},
-		"shopware": {
-			"dir": "shopware"
+		"demo-module": {
+			"dir": "demo"
 		}
 	},
 	"subdomain": {}

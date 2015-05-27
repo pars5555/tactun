@@ -2,13 +2,9 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="generator" content="Naghashyan Framework {$VERSION}" />
 		<meta name="viewport" content="initial-scale=1.0,width=device-width">
-		<link rel="shortcut icon" type="image/x-icon" href="{$STATIC_PATH}/img/main/favicon.ico">
-		<link rel="icon" type="image/x-icon" href="{$STATIC_PATH}/img/main/favicon.ico" sizes="16x16" />
-		<link rel="apple-touch-icon" href="{$STATIC_PATH}/img/main/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="{$STATIC_PATH}/css/out/styles.css?{$VERSION}" />
 		<title>NGS Home</title>
-		{include file="$TEMPLATE_DIR/util/headerControls.tpl"}
 	</head>
 	<body>
 
@@ -19,5 +15,8 @@
 				</div>
 			</header>
 		</section>
+		<section class="content">
+      {nest ns=nested_home}
+    </section>
 	</body>
 </html>

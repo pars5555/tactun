@@ -11,8 +11,8 @@
  * @version 6.0
  *
  */
-namespace security\users {
-	use \framework\AbstractUser;
+namespace demo\security\users {
+	use \ngs\framework\AbstractUser;
 	class NgsUser extends AbstractUser {
 
 		/**

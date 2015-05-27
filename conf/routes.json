@@ -1,5 +1,5 @@
 {
-	"sandbox": [
+	"demo": [
 		{
 			"action": "loads.easypost.main",
 			"route": "easypost"
@@ -16,6 +16,6 @@
 		}
 	],
 	"default": {
-		"action": "loads.main.main"
+		"action": "loads.demo.main"
 	}
 }

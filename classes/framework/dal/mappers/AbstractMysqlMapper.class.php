@@ -11,7 +11,7 @@
  * @year 2009-2014
  */
 namespace ngs\framework\dal\mappers {
-
+	
 	abstract class AbstractMysqlMapper extends AbstractMapper {
 
 		public $dbms;
@@ -21,20 +21,20 @@ namespace ngs\framework\dal\mappers {
 		 * Initializes DBMS pointer.
 		 */
 		function __construct() {
-			$config = IM()->getConfig();	
+			$config = NGS()->getConfig();	
 			if(!isset($config->DB->mysql)){
-				$config = IM()->getNgsConfig();
+				$config = NGS()->getNgsConfig();
 			}
 			$usePdo = true;
-			if (isset(IM()->getConfig()->DB->mysql->driver) && IM()->getConfig()->DB->mysql->driver == "mysqli") {
+			if (isset(NGS()->getConfig()->DB->mysql->driver) && NGS()->getConfig()->DB->mysql->driver == "mysqli") {
 				$usePdo = false;
 			}
 			if ($usePdo) {
-				$host = IM()->getConfig()->DB->mysql->host;
-				$user = IM()->getConfig()->DB->mysql->user;
-				$pass = IM()->getConfig()->DB->mysql->pass;
-				$name = IM()->getConfig()->DB->mysql->name;
-				$this->dbms = \framework\dal\connectors\MysqlPDO::getInstance($host, $user, $pass, $name);
+				$host = NGS()->getConfig()->DB->mysql->host;
+				$user = NGS()->getConfig()->DB->mysql->user;
+				$pass = NGS()->getConfig()->DB->mysql->pass;
+				$name = NGS()->getConfig()->DB->mysql->name;
+				$this->dbms = \ngs\framework\dal\connectors\MysqlPDO::getInstance($host, $user, $pass, $name);
 			}
 		}
 

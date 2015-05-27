@@ -1,17 +1,16 @@
 <?php
 /**
  * ngs index page
- * for handle all http calls
+ * for handle all dynamic http calls
+ * 
  *
  * @author Levon Naghashyan
  * @site http://naghashyan.com
  * @mail levon@naghashyan.com
- * @year 2010-2014
- * @version 6.0
+ * @year 2010-2015
+ * @version 2.0.0
  *
  */
-session_start();
 require_once ("../conf/constants.php");
-require_once (CLASSES_PATH."/framework/NGS.class.php");
-require_once (CLASSES_PATH."/framework/Dispatcher.class.php");
-$dispatcher = new framework\Dispatcher();
+require_once ("../classes/framework/NGS.class.php");
+$dispatcher = new ngs\framework\Dispatcher();

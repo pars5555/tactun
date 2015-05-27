@@ -9,8 +9,8 @@
  * @author Levon Naghashyan
  * @site http://naghashyan.com
  * @mail levon@naghashyan.com
- * @year 2014
- * @package util
+ * @year 2014-2015
+ * @package ngs.framework.util
  * @version 6.0
  * @copyright Naghashyan Solutions LLC
  *
@@ -20,6 +20,7 @@ namespace ngs\framework\util {
 	class CssBuilder {
 
 		public function streamFile($file) {
+			var_dump(NGS()->getModuleName());exit;
 			$filePath = realpath(IMUSIC_PUBLIC_ROOT."/".NGS()->getNamespace()."".$file);
 			$builderJsonFile = IMUSIC_PUBLIC_ROOT."/".NGS()->getNamespace()."/css/builder.json";
 			if (NGS()->getEnvironment() == "production") {

@@ -10,7 +10,7 @@
  * @version 6.0
  *
  */
-namespace security {
+namespace demo\security {
 	class UserGroups {
 		
 		/**

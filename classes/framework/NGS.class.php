@@ -17,7 +17,7 @@ use ngs\framework\exception\DebugException;
 class NGS {
 
 	public static $TOP = "";
-	public static $PARENT = "";
+	public $NGSVERSION = "2.0.0";
 
 	private static $instance = null;
 	private $ngsConfig = null;
@@ -94,7 +94,7 @@ class NGS {
 		if (isset($this->ngsConfig)) {
 			return $this->ngsConfig;
 		}
-
+		$this->ngsConfig = json_decode(file_get_contents($this->getRootDirByModule()."/".CONF_DIR."/config_".$this->getShortEnvironment().".json"));
 		return $this->ngsConfig = json_decode(file_get_contents($this->getRootDirByModule()."/".CONF_DIR."/config_".$this->getShortEnvironment().".json"));
 	}
 
@@ -448,7 +448,7 @@ class NGS {
 	}
 
 	public function getNGSVersion() {
-		return $this->getConfig()->VERSION;
+		return $this->NGSVERSION;
 	}
 
 	public function getDynObject() {
@@ -463,7 +463,7 @@ class NGS {
 			$class = str_replace('\\', '/', $class);
 			$ngsPrefix = substr($class, 0, strpos($class, "/"));
 			$class = substr($class, strpos($class, "/") + 1);
-			$classPath = $this->getRootDirByModule($ngsPrefix)."/".CLASSES_DIR;
+			$classPath = NGS()->getRootDirByModule($ngsPrefix)."/".CLASSES_DIR;
 			$filePath = $classPath.'/'.$class.'.class.php';
 			if (file_exists($filePath)) {
 				require_once ($filePath);
