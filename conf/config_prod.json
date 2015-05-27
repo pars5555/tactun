@@ -5,9 +5,9 @@
 			"host": "127.0.0.1",
 			"user": "root",
 			"pass": "",
-			"name": "gos"
+			"name": "tactun"
 		}
 	},
-	"static_path": "gos.am",
+	"static_path": "tactun.com",
 	"contact_email": "info@imusic.am"
 }
