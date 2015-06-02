@@ -3,11 +3,17 @@
 	"DB": {
 		"mysql": {
 			"host": "127.0.0.1",
-			"user": "root",
-			"pass": "",
+			"user": "tactun",
+			"pass": "tactun123",
 			"name": "tactun"
+		},
+		"mongo": {
+			"host": "127.0.0.1",
+			"user": "",
+			"pass": "",
+			"name": "demo"
 		}
 	},
 	"static_path": "tactun.com",
-	"contact_email": "info@imusic.am"
+	"contact_email": "info@tactun.com"
 }
